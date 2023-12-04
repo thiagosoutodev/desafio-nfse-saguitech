@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emissão de NFS-e</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Emissão de Nota Fiscal de Serviço - eletrônica</h1>
+    </header>
+    <main>
+      <section id="nfse-form-section">
+        <form id="nfse-form">
+          <fieldset>
+            <legend class="fw-bold">Dados do prestador de serviços</legend>
+            <div class="row">
+              <div id="prestador-nome-group" class="col-6">
+                <label for="prestador-nome" class="form-label"
+                  >Nome/razão social:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="prestador-nome"
+                  id="prestador-nome"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="prestador-cnpj-group" class="col-3">
+                <label for="prestador-cnpj" class="form-label">CNPJ:</label>
+                <input
+                  type="text"
+                  required
+                  name="prestador-cnpj"
+                  id="prestador-cnpj"
+                  class="form-control"
+                />
+              </div>
+              <div id="prestador-inscricao-group" class="col-3">
+                <label for="prestador-inscricao" class="form-label"
+                  >Inscrição municipal:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="prestador-inscricao"
+                  id="prestador-inscricao"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div id="prestador-endereco-group" class="col-6">
+                <label for="prestador-endereco" class="form-label"
+                  >Endereço:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="prestador-endereco"
+                  id="prestador-endereco"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="municipio-prestador-group" class="col-4">
+                <label for="municipio-prestador" class="form-label"
+                  >Município:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="municipio-prestador"
+                  id="municipio-prestador"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="uf-prestador-group" class="col-2">
+                <label for="uf-prestador" class="form-label"
+                  >Unidade Federativa:</label
+                >
+                <select
+                  required
+                  name="uf-prestador"
+                  id="uf-prestador"
+                  class="form-select"
+                >
+                  <option selected>Selecione uma UF</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Amazonas</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div id="simples-nacional" class="col-3">
+                <label for="simples-nacional" class="form-label"
+                  >Optante pelo Simples Nacional?</label
+                >
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    required
+                    name="simples-nacional"
+                    id="simples-nacional-sim"
+                    class="form-check-input"
+                  />
+                  <label for="simples-nacional-sim" class="form-check-label"
+                    >Sim</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    required
+                    name="simples-nacional"
+                    id="simples-nacional-nao"
+                    class="form-check-input"
+                  />
+                  <label for="simples-nacional-nao" class="form-check-label"
+                    >Não</label
+                  >
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="fw-bold">Dados do tomador de serviços</legend>
+            <div class="row">
+              <div id="tomador-nome-group" class="col-6">
+                <label for="tomador-nome" class="form-label"
+                  >Nome/razão social:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="tomador-nome"
+                  id="tomador-nome"
+                  class="form-control"
+                />
+              </div>
+              <div id="tomador-cpf-cnpj-group" class="col-3">
+                <label for="tomador-cpf-cnpj" class="form-label"
+                  >CPF/CNPJ:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="tomador-cpf-cnpj"
+                  id="tomador-cpf-cnpj"
+                  class="form-control"
+                />
+              </div>
+              <div id="tomador-inscricao-group" class="col-3">
+                <label for="tomador-inscricao" class="form-label"
+                  >Inscrição municipal:</label
+                >
+                <input
+                  type="text"
+                  name="tomador-inscricao"
+                  id="tomador-inscricao"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div id="tomador-endereco-group" class="col-6">
+                <label for="tomador-endereco" class="form-label"
+                  >Endereço:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="tomador-endereco"
+                  id="tomador-endereco"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="municipio-tomador-group" class="col-4">
+                <label for="municipio-tomador" class="form-label"
+                  >Município:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="municipio-tomador"
+                  id="municipio-tomador"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="uf-tomador-group" class="col-2">
+                <label for="uf-tomador" class="form-label"
+                  >Unidade Federativa:</label
+                >
+                <select
+                  required
+                  name="uf-tomador"
+                  id="uf-tomador"
+                  class="form-select"
+                >
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Amazonas</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="fw-bold">Dados do serviço prestado</legend>
+
+            <div class="row">
+              <div id="data-compentencia-group" class="col-2">
+                <label for="data-competencia" class="form-label"
+                  >Data de competência:</label
+                >
+                <input
+                  type="date"
+                  required
+                  name="data-competencia"
+                  id="data-competencia"
+                  class="form-control"
+                />
+              </div>
+              <div id="valor-servico-group" class="col-4">
+                <label for="valor-servico" class="form-label"
+                  >Valor do serviço:
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text">R$</span>
+                  <input
+                    type="text"
+                    required
+                    placeholder="00,00"
+                    name="valor-servico"
+                    id="valor-servico"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+
+              <div id="municipio-servico-group" class="col-4">
+                <label for="municipio-servico" class="form-label"
+                  >Município:</label
+                >
+                <input
+                  type="text"
+                  required
+                  name="municipio-servico"
+                  id="municipio-servico"
+                  class="form-control"
+                />
+              </div>
+
+              <div id="uf-servico-group" class="col-2">
+                <label for="uf-servico" class="form-label"
+                  >Unidade Federativa:</label
+                >
+                <select
+                  required
+                  name="uf-servico"
+                  id="uf-servico"
+                  class="form-select"
+                >
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Amazonas</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div id="codigo-servico-group" class="col">
+                <label for="codigo-servico" class="form-label"
+                  >Código do tipo de serviço:</label
+                >
+                <select
+                  required
+                  name="codigo-servico"
+                  id="codigo-servico"
+                  class="form-select"
+                >
+                  <option selected>Selecione o código</option>
+                  <option value="1.01">
+                    1.01 - Análise e desenvolvimento de sistemas.
+                  </option>
+                  <option value="1.07">
+                    1.07 - Suporte técnico em informática, inclusive instalação,
+                    configuração e manutenção de programas de computação e
+                    bancos de dados.
+                  </option>
+                  <option value="3.03">
+                    3.03 - Exploração de salões de festas, centro de convenções,
+                    escritórios virtuais, stands, quadras esportivas, estádios,
+                    auditórios, casas de espetáculos, parques de diversões,
+                    canchas e congêneres, para realização de eventos ou negócios
+                    de qualquer natureza.
+                  </option>
+                  <option value="4.02">
+                    4.02 - Análises clínicas, patologia, eletricidade médica,
+                    radioterapia, quimioterapia, ultra sonografia, ressonância
+                    magnética, radiologia, tomografia e congêneres.
+                  </option>
+                  <option value="8.01">
+                    8.01 - Ensino regular pré escolar, fundamental, médio e
+                    superior.
+                  </option>
+                  <option value="10.01">
+                    10.01 - Agenciamento, corretagem ou intermediação de câmbio,
+                    de seguros, de cartões de crédito, de planos de saúde e de
+                    planos de previdência privada.
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div id="descricao-servico-group">
+                <label for="descricao-servico" class="form-label"
+                  >Descrição do serviço:</label
+                >
+                <textarea
+                  required
+                  name="descricao-servico"
+                  id="descricao-servico"
+                  cols="30"
+                  rows="10"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" id="gerar-nfse" class="btn btn-primary">
+            Gerar NFS-e
+          </button>
+        </form>
+      </section>
+      <section id="nfse-result-section">
+        <h3>Nota Fiscal de Serviço</h3>
+      </section>
+    </main>
+    <footer>
+      <p>Developed by @thiagosoutodev</p>
+    </footer>
+  </body>
+</html>
