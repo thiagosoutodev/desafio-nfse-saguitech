@@ -6,7 +6,7 @@ Este projeto trata-se de uma página HTML que lê os dados necessários para a e
 
 ### Instruções para rodar o projeto:
 
-1. Abrir a página web via link do deploy: <>;
+1. Abrir a página web via link do deploy: <https://thiagosoutodev.github.io/desafio-nfse-saguitech/>;
 2. Digitar os dados necessários nos campos do formulário;
 3. Clicar no botão "Gerar NFS-e" e visualizar o resultado.
 
